@@ -1,0 +1,112 @@
+.vignette {
+    /* position: fixed; */
+    width: 150px;
+    height: 50px;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset;
+}
+
+td {
+    style: bold;
+}
+
+.product_desc {
+    background-color: #eeeeee;
+    padding: 5px;
+    margin: 15px;
+    box-shadow: 5px 10px #888888;
+}
+
+.padding_top {
+    padding-top: 50px;
+}
+
+.categories_nav {
+    position: absolute;
+    margin-left: 5px;
+    left: 0px;
+    border: solid 1px;
+    background-color: #333333;
+    text-align: center;
+    top: 50px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    display: none;
+}
+
+.categorie_nav-item {
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    width: 30%;
+}
+
+.categorie_nav-item:hover {
+    background-color: #eeeeee;
+    text-align: center;
+    cursor: pointer;
+}
+
+a:link {
+    color: white;
+}
+
+
+/* visited link */
+
+a:visited {
+    color: white;
+}
+
+
+/* mouse over link */
+
+a:hover {
+    color: white;
+}
+
+
+/* selected link */
+
+a:active {
+    color: white;
+}
+
+
+/* .profil_item {
+    text-align: left;
+    padding: 2px;
+    margin: 2px;
+    height: 25px;
+    background-color: lightblue;
+} */
+
+._error {
+    background-color: rgb(255, 213, 213);
+    border-radius: 3px;
+    display: none;
+    padding: 5px;
+    margin-top: 20px;
+    border: solid 2px red;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    width: 20%;
+    margin: auto;
+}
+
+._success {
+    background-color: rgb(160, 255, 188);
+    border-radius: 3px;
+    display: none;
+    padding: 3px;
+    margin-top: 20px;
+    border: solid 2px rgb(5, 161, 0);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    width: 20%;
+    margin: auto;
+}

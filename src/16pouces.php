@@ -4,11 +4,11 @@
     //if(!isset($_SESSION)) session_start();
     $wwwDir = $_SERVER['DOCUMENT_ROOT'];
     require_once $wwwDir."/seni-velo/src/model.php";
-    $_SESSION['active_page'] = "accueil";
+    $_SESSION['active_page'] = "categorie";
     //require_once $wwwDir.AJOUT_EMPLOYE_MODEL_ROUTE;
     //require_once $wwwDir.USERS_MODEL_ROUTE;
 
-    $velos = getAllVelos();
+    $velos = get16PoucesVelos();
     // echo "<p>";
     // foreach($velos as $velo) 
     // print_r($velo["nom"]."  " );
@@ -58,7 +58,20 @@
             <?php
                 $nbVelos = 0;
                 foreach($velos as $value){
-           
+            ?>
+            <script>
+                clients[ "<?php echo $nbVelos ?>" ] = {
+                nom: " <?php echo $value["nom"] ?> " ,
+                taille: "<?php echo $value["taille"] ?>" ,
+                couleur: "<?php echo $value["couleur"] ?>" ,
+                usages:"<?php echo $value["usages"] ?>" ,
+                poids: "<?php echo $value["poids"] ?>",
+                prix: "<?php echo $value["prix"] ?>",
+                accessoires: "<?php echo $value["accessoires"] ?>",
+                image: "<?php echo $value["image"] ?>"
+                };
+            </script>
+            <?php
                     echo 
                     "<tr valign='middle' id = '".$nbVelos."' >
                         <td width='5%' align='center' id = 'nom_".$nbVelos."' >".$value["nom"]."</td>".
@@ -68,7 +81,7 @@
                         "<td width='5%' align='center' id = 'poids_".$nbVelos."' >".$value["poids"]."</td>".
                         "<td width='5%' align='center' id = 'prix_".$nbVelos."' >".$value["prix"]."</td>".
                         "<td width='20%' align='center' id = 'accessoires_".$nbVelos."' >".$value["accessoires"]."</td>".
-                        "<td width='5%' align='center' id = 'image_".$nbVelos."' ><a href='/seni-velo/src/ficheProduit.php?nom=".$value["nom"]."&taille=".$value["taille"]."&couleur=".$value["couleur"]."&usages=".$value["usages"]."&poids=".$value["poids"]."&prix=".$value["prix"]."&accessoires=".$value["accessoires"]."&image=".$value["image"]."'><image class='vignette' src='/seni-velo/img/".$value["image"]."'></image> </a></td>".
+                        "<td width='5%' align='center' id = 'images_".$nbVelos."' ><a href='/seni-velo/src/ficheProduit.php?nom=".$value["nom"]."&taille=".$value["taille"]."&couleur=".$value["couleur"]."&usages=".$value["usages"]."&poids=".$value["poids"]."&prix=".$value["prix"]."&accessoires=".$value["accessoires"]."&image=".$value["image"]."'><image class='vignette' src='/seni-velo/img/".$value["image"]."'></image> </a></td>".
                     "</tr>";
                     $nbVelos++;
                 }

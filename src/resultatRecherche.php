@@ -4,7 +4,7 @@
     //if(!isset($_SESSION)) session_start();
     $wwwDir = $_SERVER['DOCUMENT_ROOT'];
     require_once $wwwDir."/seni-velo/src/model.php";
-    $_SESSION['active_page'] = "accueil";
+    $_SESSION['active_page'] = "";
     //require_once $wwwDir.AJOUT_EMPLOYE_MODEL_ROUTE;
     //require_once $wwwDir.USERS_MODEL_ROUTE;
 
@@ -14,7 +14,6 @@
     // print_r($velo["nom"]."  " );
     // echo "</p>";
 
-        
 ?>
 <html>
     <head>
@@ -58,7 +57,21 @@
             <?php
                 $nbVelos = 0;
                 foreach($velos as $value){
-           
+                    if(isset($_GET['text_search']) && (stripos($value["nom"], $_GET['text_search']) !== false || stripos($value["couleur"], $_GET['text_search']) !== false|| stripos($value["usages"], $_GET['text_search']) !== false|| stripos($value["accessoires"], $_GET['text_search']) !== false|| stripos($value["poids"], $_GET['text_search']) !== false|| stripos($value["taille"], $_GET['text_search']) !== false|| stripos($value["prix"], $_GET['text_search']) !== false)){
+            ?>
+            <script>
+                clients[ "<?php echo $nbVelos ?>" ] = {
+                nom: " <?php echo $value["nom"] ?> " ,
+                taille: "<?php echo $value["taille"] ?>" ,
+                couleur: "<?php echo $value["couleur"] ?>" ,
+                usages:"<?php echo $value["usages"] ?>" ,
+                poids: "<?php echo $value["poids"] ?>",
+                prix: "<?php echo $value["prix"] ?>",
+                accessoires: "<?php echo $value["accessoires"] ?>",
+                image: "<?php echo $value["image"] ?>"
+                };
+            </script>
+            <?php
                     echo 
                     "<tr valign='middle' id = '".$nbVelos."' >
                         <td width='5%' align='center' id = 'nom_".$nbVelos."' >".$value["nom"]."</td>".
@@ -72,6 +85,7 @@
                     "</tr>";
                     $nbVelos++;
                 }
+            }
 
             ?>
             </tbody>
